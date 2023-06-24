@@ -17,7 +17,7 @@ document.getElementById("myForm").addEventListener("submit", function(event) {
           if (age >= 18) {
             resolve(name);
           } else {
-            reject(`Oh sorry ${name}. You aren't old enough.`);
+            reject(new Error(`Oh sorry ${name}. You aren't old enough.`));
           }
         }, 4000);
       });
@@ -27,7 +27,7 @@ document.getElementById("myForm").addEventListener("submit", function(event) {
           alert(`Welcome, ${name}. You can vote.`);
         })
         .catch(function(error) {
-          alert(error);
+          alert(error.message);
         });
 
       ageInput.value = "";
