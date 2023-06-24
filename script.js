@@ -1,4 +1,3 @@
-//your JS code here. If required.
 document.getElementById("myForm").addEventListener("submit", function(event) {
       event.preventDefault(); // Prevent form submission
 
@@ -18,7 +17,7 @@ document.getElementById("myForm").addEventListener("submit", function(event) {
           if (age >= 18) {
             resolve(name);
           } else {
-            reject(name);
+            reject(`Oh sorry ${name}. You aren't old enough.`);
           }
         }, 4000);
       });
@@ -27,8 +26,8 @@ document.getElementById("myForm").addEventListener("submit", function(event) {
         .then(function(name) {
           alert(`Welcome, ${name}. You can vote.`);
         })
-        .catch(function(name) {
-          alert(`Oh sorry ${name}. You aren't old enough.`);
+        .catch(function(error) {
+          alert(error);
         });
 
       ageInput.value = "";
